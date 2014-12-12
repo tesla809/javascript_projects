@@ -47,17 +47,21 @@ var selection_List = function (weapon){
     }
     };
 
-var computer_Choice = function () {
-    var comp_weapon = Math.floor(Math.random() * (4 - 1) + 1);
-    return selection_List(comp_weapon);
+var computer_Input = function () {
+    var comp_Weapon = Math.floor(Math.random() * (4 - 1) + 1);
+    // turns integer into string
+    comp_Weapon = comp_Weapon.toString();
+    return selection_List(comp_Weapon);
 };
 
 var game = function () {
     
     intro();
     var human = user_Input();
-    console.log(human);
+    var computer = computer_Input();
+
     };
     
 game();
+
 
