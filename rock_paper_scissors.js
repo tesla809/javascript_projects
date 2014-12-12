@@ -17,7 +17,7 @@ var intro = function () {
 console.log("This is the rock, paper, scissors game.");
 console.log("Pick one to play against the computer.");
 
-}
+};
 
 var user_Input = function () { 
     // pick weapon.
@@ -29,24 +29,27 @@ var user_Input = function () {
 var selection_List = function (weapon){
     // ensures user picks within choices
     if (weapon === "rock" || weapon === "Rock" || weapon === "1") {
-        console.log("Rock!");
+        weapon = "ROCK";
         return weapon;
         
     } else if (weapon === "paper" || weapon === "Paper" || weapon === "2") {
-        console.log("Paper!");
+        weapon = "PAPER";
         return weapon;
+        
     } else if  (weapon === "scissor" || weapon === "Scissor" || weapon === "3" ) {
-        console.log("Scissor!");
+        weapon = "SCISSOR";
         return weapon;
+        
     } else {
         
         // If user did not choose from selection
         // function calls itself
         console.log("You did not choose from the selection.");
-       user_Input(); 
+        weapon = null;
+        user_Input(); 
     }
     };
-
+    
 var computer_Input = function () {
     var comp_Weapon = Math.floor(Math.random() * (4 - 1) + 1);
     // turns integer into string
@@ -54,14 +57,57 @@ var computer_Input = function () {
     return selection_List(comp_Weapon);
 };
 
+// some compare function
+var compare_Inputs = function (human, computer) {
+  console.log("The human chooses " + human + " and the computer chooses " + computer); 
+  
+  // rock
+  if (human === "ROCK" && computer === "ROCK"){
+      
+      console.log("We have a tie!");
+      
+  } else if (human === "ROCK" && computer === "SCISSOR"){
+      
+      console.log("ROCK beats SCISSOR. You win!");
+      
+  } else if (human === "ROCK" && computer === "PAPER"){
+
+    console.log("PAPER covers ROCK. You Lose.");
+    
+  } else if (human === "PAPER" && computer === "PAPER"){
+      
+      console.log("We have a tie!");
+      
+  } else if (human === "PAPER" && computer === "SCISSOR"){
+      
+      console.log("SCISSOR cuts PAPER. You lose.");
+    
+  } else if (human === "SCISSOR" && computer === "SCISSOR"){
+
+    console.log("We have a tie!");
+      
+  }
+  };
+
 var game = function () {
     
     intro();
     var human = user_Input();
-    var computer = computer_Input();
-
-    };
     
+    // resolves issue if user places wrong answer first time, then program puts in undefined in choices.
+    // but still asks twice...
+    
+    while (human === undefined) {
+        // clears undefined
+        human = null;
+        human = user_Input();
+    }
+    
+    var computer = computer_Input();
+    compare_Inputs(human, computer);
+    };
+
+// prompt game
 game();
 
 
