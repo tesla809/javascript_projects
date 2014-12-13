@@ -20,7 +20,15 @@ var intro = function (){
 };
 
 var players = function (){
-    
+    console.log("How many players do you want to play with?");
+    var player_number = prompt("How many players do you want to play with?");
+    if (player_number <= 1){
+        console.log("Please pick a number greater than 1. You can't play against yourself.");
+        players();
+    } else if (isNaN(player_number)){
+        console.log("Please enter a valid number of players");
+        players();
+    }
 };
 
 var rules_Explain = function (){
@@ -34,14 +42,16 @@ var rules_Explain = function (){
         console.log ("\n The Rules:\n There are three dice.");
         console.log (" Each player rolls once.");
         console.log (" Must roll untill pattern is found.\n");
-        console.log ("The Patterns: \n 4-5-6 highest pattern");
-    console.log (" Trips- triples of dice. higher triples wins");
-    console.log (" Point- doubles with number. Higher single wins");
-    console.log (" 1-2-3 - loses automatically"); 
+        console.log ("The Patterns: \n 4-5-6-: highest pattern");
+    console.log (" Trips: triples of dice. higher triples wins");
+    console.log (" Point: doubles with number. Higher single wins");
+    console.log (" 1-2-3: loses automatically"); 
      
     } else if (see_Rules === "NO" || see_Rules === "N") {
+        
         // enter game
         console.log("enter game place holder");
+        
     } else {
         console.log("Pick a valid entry yo");
         rules_Explain();
@@ -52,6 +62,7 @@ var rules_Explain = function (){
 var game = function()  {
     intro();
     rules_Explain();
+    players();
 };
 
 // start game.
