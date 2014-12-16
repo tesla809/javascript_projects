@@ -20,15 +20,21 @@ var intro = function (){
 };
 
 var players = function (){
-    console.log("How many players do you want to play with?");
-    var player_number = prompt("How many players do you want to play with?");
-    if (player_number <= 1){
-        console.log("Please pick a number greater than 1. You can't play against yourself.");
-        players();
-    } else if (isNaN(player_number)){
-        console.log("Please enter a valid number of players");
-        players();
+    //play against computer?
+    console.log("\n Do you want to play against a computer or against a friend. Press 1 for computer, 2 for friend.");
+    var opponent = prompt("Do you want to play against a computer or against a friend. Press 1 for computer, 2 for friend.");
+    opponent =  Number(opponent);
+    if (opponent === 1){
+        console.log("You are playing against the computer: Hal 9000");
+    } else if (opponent === 2){
+        console.log("You are playing against a human, player 2");
+    } else {
+        console.log("enter a either 1 for the computer or 2 for another human");
     }
+};
+
+var game_mech = function (){
+    
 };
 
 var rules_Explain = function (){
@@ -41,7 +47,7 @@ var rules_Explain = function (){
     if (see_Rules === "YES" || see_Rules === "Y"){
         console.log ("\n The Rules:\n There are three dice.");
         console.log (" Each player rolls once.");
-        console.log (" Must roll untill pattern is found.\n");
+        console.log (" Each player must roll until a recongized pattern is  found.\n");
         console.log ("The Patterns: \n 4-5-6-: highest pattern");
     console.log (" Trips: triples of dice. higher triples wins");
     console.log (" Point: doubles with number. Higher single wins");
@@ -50,10 +56,10 @@ var rules_Explain = function (){
     } else if (see_Rules === "NO" || see_Rules === "N") {
         
         // enter game
-        console.log("enter game place holder");
+        console.log("\nOk, let's play!");
         
     } else {
-        console.log("Pick a valid entry yo");
+        console.log("Yo, pick a valid entry");
         rules_Explain();
     }
 };
@@ -67,5 +73,6 @@ var game = function()  {
 
 // start game.
 game();
+
 
 
