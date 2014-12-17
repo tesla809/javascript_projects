@@ -33,9 +33,28 @@ var players = function (){
     }
 };
 
-var game_mech = function (){
+var game_mech = function () {
+        dicePattern = [];
+        for (var x = 0; x < 3; x += 1){
+            var dice = Math.floor((Math.random() * 6 ) + 1);
+            dicePattern.push(dice);    
+        }
+        dicePattern = dicePattern.join("");
+        // test to output
+        console.log("game mech dicePattern " + dicePattern);
+        
+        // return dice pattern to pattern function.
+        return pattern_ID(dicePattern);
+    };
+
+var pattern_ID = function (dicePattern){
+    // test to output
+    console.log("patter_ID dicePattern " + dicePattern);
+
+    //what is best way to hardcode pattern?
     
 };
+
 
 var rules_Explain = function (){
     
@@ -48,10 +67,10 @@ var rules_Explain = function (){
         console.log ("\n The Rules:\n There are three dice.");
         console.log (" Each player rolls once.");
         console.log (" Each player must roll until a recongized pattern is  found.\n");
-        console.log ("The Patterns: \n 4-5-6-: highest pattern");
-    console.log (" Trips: triples of dice. higher triples wins");
-    console.log (" Point: doubles with number. Higher single wins");
-    console.log (" 1-2-3: loses automatically"); 
+        console.log ("The Patterns: \n 4-5-6-: highest pattern.");
+    console.log (" Trips: Triples of dice. The higher triples wins.");
+    console.log (" Point: Doubles with a single number. The higher single wins.");
+    console.log (" 1-2-3: loses automatically."); 
      
     } else if (see_Rules === "NO" || see_Rules === "N") {
         
@@ -69,10 +88,13 @@ var game = function()  {
     intro();
     rules_Explain();
     players();
+    game_mech();
 };
 
 // start game.
 game();
+
+
 
 
 
