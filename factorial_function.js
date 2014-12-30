@@ -1,20 +1,13 @@
-function factor_enter () {
-    console.log("Enter factorial");
-    factor = prompt("Enter factorial");
-    return factorial(factor);
-}
-    
+console.log("enter a number to get the factorial");
+num = prompt("factorial is: ");
+FirstFactorial(num);
 
-function factorial (factor){
-    if (isNaN(factor) === false){
-        console.log("factor!!!!");
+function FirstFactorial(num) {
+    if(num === 0){
+        return 1;
     } else {
-        console.log("Invalid, please enter a number");
-        factor_enter();
+        //the recursion....
+        return num*FirstFactorial(num-1);
     }
 }
 
-factor_enter();
-
-
-//what is a factor?
