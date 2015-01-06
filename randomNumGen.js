@@ -1,12 +1,14 @@
+//v2 random number generator
+
+console.log("high number:");
+var max = prompt("high num");
+max = parseInt(max);
+
+console.log("low number:");
+var min = prompt("low num");
+min = parseInt(min);
+
+var randomRange = Math.floor(Math.random() * (max - min +1)) + min;
 
 
-//v1- random number generator
-console.log("Pick a number to be the upper range of this random number generator:");
-var inputNumber = prompt("Pick a number");
-var inputNumber = parseInt(inputNumber);
-
-var randomNumber = Math.floor(Math.random() * inputNumber) + 1;
-
-console.log("Your random number between 0 and " + inputNumber + " is: " + randomNumber);
-
-
+console.log("Your random number between " + min + " and " + max + " is: " + randomRange);
