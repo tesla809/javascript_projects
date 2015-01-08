@@ -1,6 +1,13 @@
 
 //function for generating any random number
 function getRandomNumber( lower, upper ){
+
+    //input strings
+    console.log("Pick the lower range" );
+    lower = prompt("Pick the lower range");
+    console.log("Pick the upper range" );
+    upper = prompt("Pick the upper range");
+
     // turns strings into integers
     lower = parseInt(lower);
     upper = parseInt(upper);
@@ -11,13 +18,9 @@ function getRandomNumber( lower, upper ){
     return randomNumber;
     } else {
         console.log("Please pick two integers. One for the lower and another for the upper range");
+        console.log( getRandomNumber( low, high) );
+
     }
 }
-
-console.log("Pick the lower range" );
-var low = prompt("Pick the lower range");
-
-console.log("Pick the upper range" );
-var high = prompt("Pick the upper range");
 
 console.log( getRandomNumber( low, high) );
