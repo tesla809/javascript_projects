@@ -17,9 +17,7 @@ function getRandomNumber( lower, upper ){
         var randomNumber = Math.floor( Math.random() * (upper - lower) + 1) + lower;
     return randomNumber;
     } else {
-        console.log("Please pick two integers. One for the lower and another for the upper range");
-        console.log( getRandomNumber( low, high) );
-
+        throw new Error("Please pick two integers. One for the lower and another for the upper range");
     }
 }
 
