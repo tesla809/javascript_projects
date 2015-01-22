@@ -1,14 +1,4 @@
-//Coderbyte Problem 4 Easy- Letter Challenge
-// still need to fix
-// 1- finding ampersands in regular expression
-// I can hack it with an if statement, but that's sloppy
 
-// 2- special characters are shifting too, 
-// I want to exit that iteration of the for loop
-// and add the special character in question to the new 
-// array 
-
-// 3- refactoring obviously
 
 
 function main(){
@@ -26,9 +16,8 @@ function LetterChanges(str){
     var strNewArray = [];
     
     for(var i = 0; i < strArray.length; i++) {
-        if (strArray[i].match(/[^\w&.\-]+/g) === true){
+        if (/(\W)/g.test(strArray[i]) === true){
             strNewArray.push(strArray[i]);
-            break;
         } else if (strArray[i] === " ") {
             strNewArray.push(" ");
             continue;
