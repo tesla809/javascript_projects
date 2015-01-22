@@ -16,7 +16,7 @@ function LetterChanges(str){
     var strNewArray = [];
     
     for(var i = 0; i < strArray.length; i++) {
-        if (/(\W)/g.test(strArray[i]) === true){
+        if (/(\W)/g.test(strArray[i]) === true || /([0-9])/g.test(strArray[i]) === true){
             strNewArray.push(strArray[i]);
         } else if (strArray[i] === " ") {
             strNewArray.push(" ");
@@ -29,9 +29,7 @@ function LetterChanges(str){
             strNewArray.push(character1);
         }
     }
-    
         return strNewArray.join("");
-        
 }
 
 main();
