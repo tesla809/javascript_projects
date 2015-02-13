@@ -25,7 +25,7 @@ for (var i = 0; i < questions.length; i++){
     right.push(questions[i][0], questions[i][1]);
   } else {
     wrongTally.push(answer);
-    wrong.push(questions[i][0], questions[i][1], 'You wrote: ' + wrongTally);
+    wrong.push(questions[i][0], questions[i][1], 'You wrote: ' + wrongTally + '</br>');
   }
 }
 
